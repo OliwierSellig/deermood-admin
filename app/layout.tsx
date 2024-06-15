@@ -1,4 +1,6 @@
+import { plusJakartaSans } from '@/src/utils/fonts';
 import type { Metadata } from 'next';
+import '../styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Deermood Admin',
@@ -13,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${plusJakartaSans.variable} font-sans`}>
+        {children}
+      </body>
     </html>
   );
 }
