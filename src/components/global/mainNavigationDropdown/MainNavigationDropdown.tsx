@@ -1,20 +1,18 @@
 'use client';
 
-import { NavLink } from '@/src/utils/types/navLink';
 import { ChevronLeftIcon } from '@heroicons/react/20/solid';
-import { ReactElement, SVGProps, useState } from 'react';
-import MainNavigationLink from '../mainNavigationLink/MainNavigationLink';
+import { ReactElement, ReactNode, SVGProps, useState } from 'react';
 
 type MainNavigationDropdownProps = {
   Icon: ReactElement<SVGProps<SVGSVGElement>>;
   label: string;
-  links: NavLink[];
+  children?: ReactNode;
 };
 
 function MainNavigationDropdown({
   Icon,
   label,
-  links,
+  children,
 }: MainNavigationDropdownProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
@@ -32,21 +30,14 @@ function MainNavigationDropdown({
         />
       </button>
       <div
-        className={`grid ease-in-out duration-200 w-full  grid-rows-[${isOpen ? '1fr' : '0fr'}]`}
+        className={`grid ease-in-out duration-200 w-full  ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
       >
         <div className="overflow-hidden flex gap-2 px-2">
-          <div className="w-0.5 h-full bg-primary-300 rounded-xl"></div>
-          <nav className="w-full">
-            {links.map((link, i) => (
-              <MainNavigationLink
-                label={link.label}
-                Icon={link.Icon}
-                url={link.url}
-                size="sm"
-                key={i}
-                hidden={!isOpen}
-              />
-            ))}
+          <div className="w-0.5 h-full bg-primary-300 rounded-xl" />
+          <nav
+            className={`w-full [& a] ${isOpen ? '[&>a]:pointer-events-auto' : '[&>a]:pointer-events-none'}`}
+          >
+            {children}
           </nav>
         </div>
       </div>

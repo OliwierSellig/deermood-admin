@@ -1,6 +1,3 @@
-'use client';
-
-// Find workaround |
 import adminPhoto from '@/public/img/admin.jpg';
 import { featuresLinks, linksLower, linksUpper } from '@/src/utils/data/links';
 import { BeakerIcon } from '@heroicons/react/24/outline';
@@ -22,15 +19,21 @@ function MainNavigation() {
               <MainNavigationLink
                 url={link.url}
                 label={link.label}
-                Icon={link.Icon}
+                icon={<link.Icon />}
                 key={i}
               />
             ))}
-            <MainNavigationDropdown
-              label="Features"
-              Icon={<BeakerIcon />}
-              links={featuresLinks}
-            />
+            <MainNavigationDropdown label="Features" Icon={<BeakerIcon />}>
+              {featuresLinks.map((link, i) => (
+                <MainNavigationLink
+                  label={link.label}
+                  icon={<link.Icon />}
+                  url={link.url}
+                  size="sm"
+                  key={i}
+                />
+              ))}
+            </MainNavigationDropdown>
           </>
         </MainNavigationCol>
         <MainNavigationCol title="Account">
@@ -39,7 +42,7 @@ function MainNavigation() {
               <MainNavigationLink
                 url={link.url}
                 label={link.label}
-                Icon={link.Icon}
+                icon={<link.Icon />}
                 key={i}
               />
             ))}

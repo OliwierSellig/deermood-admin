@@ -4,7 +4,9 @@ import MainNavigationLink from '../MainNavigationLink';
 
 describe('Rendering', () => {
   it('should render the correct text after page load', () => {
-    render(<MainNavigationLink Icon={HomeIcon} label="Dashboard" url="/" />);
+    render(
+      <MainNavigationLink icon={<HomeIcon />} label="Dashboard" url="/" />,
+    );
 
     const labelEl = screen.getByRole('link', { name: 'Dashboard' });
 
