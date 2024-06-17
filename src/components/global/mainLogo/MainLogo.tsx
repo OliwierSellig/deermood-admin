@@ -21,7 +21,7 @@ function MainLogo() {
       <TooltipWindow content="Visit Website">
         <Link
           href="https://github.com/OliwierSellig"
-          className="text-primary-500 focus:text-emerald-400 duration-200 ease-in-out "
+          className="text-primary-500 focus:text-emerald-600 duration-200 ease-in-out "
           target="_blank"
         >
           <ArrowUpRightIcon className="w-6 h-6  " />
