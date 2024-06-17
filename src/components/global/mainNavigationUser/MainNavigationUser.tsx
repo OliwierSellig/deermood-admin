@@ -32,7 +32,7 @@ function MainNavigationUser({
         <ArrowRightIcon className="z-30 h-5 w-5 fill-primary-100 opacity-0 duration-200 ease-in-out -translate-x-2" />
       </Link>
       <div className="flex flex-col">
-        <Link tabIndex={-1} href="/acount" className="font-medium">
+        <Link tabIndex={-1} href="/account" className="font-medium">
           {fullName}
         </Link>
         <span className="text-xs text-primary-500">{email}</span>
