@@ -2,9 +2,11 @@
 
 // Find workaround |
 import adminPhoto from '@/public/img/admin.jpg';
-import { linksLower, linksUpper } from '@/src/utils/data/links';
+import { featuresLinks, linksLower, linksUpper } from '@/src/utils/data/links';
+import { BeakerIcon } from '@heroicons/react/24/outline';
 import MainLogo from '../mainLogo/MainLogo';
 import MainNavigationCol from '../mainNavigationCol/MainNavigationCol';
+import MainNavigationDropdown from '../mainNavigationDropdown/MainNavigationDropdown';
 import MainNavigationLink from '../mainNavigationLink/MainNavigationLink';
 import MainNavigationLogout from '../mainNavigationLogout/MainNavigationLogout';
 import MainNavigationUser from '../mainNavigationUser/MainNavigationUser';
@@ -24,6 +26,11 @@ function MainNavigation() {
                 key={i}
               />
             ))}
+            <MainNavigationDropdown
+              label="Features"
+              Icon={<BeakerIcon />}
+              links={featuresLinks}
+            />
           </>
         </MainNavigationCol>
         <MainNavigationCol title="Account">

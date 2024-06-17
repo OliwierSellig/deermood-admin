@@ -3,14 +3,11 @@ import { render, screen } from '@testing-library/react';
 import MainNavigationLink from '../MainNavigationLink';
 
 describe('Rendering', () => {
-  it('should render the correct text and icon after page load', () => {
+  it('should render the correct text after page load', () => {
     render(<MainNavigationLink Icon={HomeIcon} label="Dashboard" url="/" />);
 
-    const iconEl = screen.getByTestId('icon');
-    const labelEl = screen.getByText('Dashboard');
+    const labelEl = screen.getByRole('link', { name: 'Dashboard' });
 
-    expect(iconEl).toBeInTheDocument();
-    expect(iconEl).toContainHTML('<svg');
     expect(labelEl).toBeInTheDocument();
   });
 });

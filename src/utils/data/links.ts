@@ -25,7 +25,7 @@ export const linksLower: NavLink[] = [
   { Icon: CursorArrowRippleIcon, label: 'Create Admin', url: '/create-admin' },
 ];
 
-export const featuresLink: NavLink[] = [
+export const featuresLinks: NavLink[] = [
   { Icon: BookmarkIcon, label: 'Themes', url: '/themes' },
   {
     Icon: ChatBubbleBottomCenterTextIcon,

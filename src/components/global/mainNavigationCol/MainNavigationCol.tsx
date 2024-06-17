@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 type MainNavigationColProp = {
   title: string;
-  children: ReactNode;
+  children?: ReactNode;
   border?: boolean;
 };
 
