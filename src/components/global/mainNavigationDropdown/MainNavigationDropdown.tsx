@@ -1,7 +1,7 @@
 'use client';
 
 import { ChevronLeftIcon } from '@heroicons/react/20/solid';
-import { ReactElement, ReactNode, SVGProps, useState } from 'react';
+import React, { ReactElement, ReactNode, SVGProps, useState } from 'react';
 
 type MainNavigationDropdownProps = {
   Icon: ReactElement<SVGProps<SVGSVGElement>>;
@@ -15,6 +15,13 @@ function MainNavigationDropdown({
   children,
 }: MainNavigationDropdownProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const childrenWithTabIndex = React.Children.map(children, (child) => {
+    return React.cloneElement(child as ReactElement, {
+      hidden: isOpen ? false : true,
+    });
+  });
+
   return (
     <div className="px-2 py-3">
       <button
@@ -37,7 +44,7 @@ function MainNavigationDropdown({
           <nav
             className={`w-full [& a] ${isOpen ? '[&>a]:pointer-events-auto' : '[&>a]:pointer-events-none'}`}
           >
-            {children}
+            {childrenWithTabIndex}
           </nav>
         </div>
       </div>
