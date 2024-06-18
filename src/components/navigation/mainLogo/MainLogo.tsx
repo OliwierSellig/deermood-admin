@@ -6,9 +6,9 @@ import TooltipWindow from '../../global/tooltipWindow/TooltipWindow';
 
 function MainLogo() {
   return (
-    <header className="py-2 px-4 bg-primary-50 border border-primary-200 rounded-xl flex justify-start items-center gap-10 xl:gap-6">
+    <header className="flex items-center justify-start gap-10 rounded-xl border border-primary-200 bg-primary-50 px-4 py-2 xl:gap-6">
       <div className="flex items-center gap-2">
-        <div className="relative h-14 aspect-square">
+        <div className="relative aspect-square h-14">
           <Image fill src={logo} alt="Deermood Logo" />
         </div>
         <div className="flex flex-col">
@@ -21,10 +21,10 @@ function MainLogo() {
       <TooltipWindow content="Visit Website">
         <Link
           href="https://github.com/OliwierSellig"
-          className="text-primary-500 focus:text-emerald-600 duration-200 ease-in-out"
+          className="text-primary-500 duration-200 ease-in-out focus:text-emerald-600"
           target="_blank"
         >
-          <ArrowUpRightIcon className="w-6 h-6" />
+          <ArrowUpRightIcon className="h-6 w-6" />
         </Link>
       </TooltipWindow>
     </header>

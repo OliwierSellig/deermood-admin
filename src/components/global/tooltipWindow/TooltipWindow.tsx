@@ -19,7 +19,7 @@ function TooltipWindow({ content, children }: TooltipWindowProps) {
     >
       {children}
       {isOpen && (
-        <div className=" absolute top-0 right-0 translate-x-full -translate-y-1/2 py-3 px-4 w-max rounded-md text-xs animate-fade-in-fast font-medium border border-primary-200 shadow-sm bg-primary-50">
+        <div className="absolute right-0 top-0 w-max -translate-y-1/2 translate-x-full animate-fade-in-fast rounded-md border border-primary-200 bg-primary-50 px-4 py-3 text-xs font-medium shadow-sm">
           {content}
         </div>
       )}

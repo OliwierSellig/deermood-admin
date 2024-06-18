@@ -13,9 +13,9 @@ function MainNavigationCol({
 }: MainNavigationColProp) {
   return (
     <div
-      className={`px-2 pt-2 pb-6 md:pb-2 gap-y-2 ${border ? 'border-b-2 border-primary-300' : ''}`}
+      className={`gap-y-2 px-2 pb-6 pt-2 md:pb-2 ${border ? 'border-b-2 border-primary-300' : ''}`}
     >
-      <p className="text-sm text-primary-500 pb-4">{title}</p>
+      <p className="pb-4 text-sm text-primary-500">{title}</p>
       <ul>{children}</ul>
     </div>
   );

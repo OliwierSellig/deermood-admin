@@ -12,7 +12,7 @@ function MobileNavigation() {
   const [isMobileOpen, setIsMobileOpen] = useState<boolean>(false);
 
   return (
-    <nav className=" order-2 bg-primary-100 px-6 py-3 relative justify-around gap-24 hidden md:flex">
+    <nav className="relative order-2 hidden justify-around gap-24 bg-primary-100 px-6 py-3 md:flex">
       <MainNavigationButton
         icon={<Bars3BottomLeftIcon />}
         label="Navigation"

@@ -13,8 +13,8 @@ type MobileColNavProps = {
 
 function MobileColNav({ hideNav }: MobileColNavProps) {
   return createPortal(
-    <div className="animate-fade-in-fast hide-scrollbar fixed top-0 left-0 w-full  flex flex-col items-center px-8 py-12 z-50 h-full bg-primary-100/80 overflow-y-auto">
-      <div className="flex flex-col max-w-80 w-full z-50 ">
+    <div className="hide-scrollbar fixed left-0 top-0 z-50 flex h-full w-full animate-fade-in-fast flex-col items-center overflow-y-auto bg-primary-100/80 px-8 py-12">
+      <div className="z-50 flex w-full max-w-80 flex-col">
         <MobileNavLogo handleClick={hideNav} />
         <MainNavigationCol title="Main menu">
           <>

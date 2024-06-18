@@ -26,23 +26,23 @@ function MainNavigationDropdown({
     <div className="px-2 py-3">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="w-full pb-4 xl:text-sm rounded-md flex justify-between gap-x-2 items-center text-primary-500 hover:text-primary-800 focus:text-primary-800 ease-in-out duration-150"
+        className="flex w-full items-center justify-between gap-x-2 rounded-md pb-4 text-primary-500 duration-150 ease-in-out hover:text-primary-800 focus:text-primary-800 xl:text-sm"
       >
-        <span className="[&>svg]:h-6 [&>svg]:w-6 flex items-center gap-x-2">
+        <span className="flex items-center gap-x-2 [&>svg]:h-6 [&>svg]:w-6">
           {Icon}
           <span>{label}</span>
         </span>
         <ChevronLeftIcon
-          className={`w-6 h-6 xl:w-5 xl:h-5 ease-in-out duration-200 ${isOpen ? '-rotate-90' : ''}`}
+          className={`h-6 w-6 duration-200 ease-in-out xl:h-5 xl:w-5 ${isOpen ? '-rotate-90' : ''}`}
         />
       </button>
       <div
-        className={`grid ease-in-out duration-200 w-full  ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
+        className={`grid w-full duration-200 ease-in-out ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
       >
-        <div className="overflow-hidden flex gap-2 px-2">
-          <div className="w-0.5 h-full bg-primary-300 rounded-xl" />
+        <div className="flex gap-2 overflow-hidden px-2">
+          <div className="h-full w-0.5 rounded-xl bg-primary-300" />
           <nav
-            className={`w-full [& a] ${isOpen ? '[&>a]:pointer-events-auto' : '[&>a]:pointer-events-none'}`}
+            className={`[& a] w-full ${isOpen ? '[&>a]:pointer-events-auto' : '[&>a]:pointer-events-none'}`}
           >
             {childrenWithTabIndex}
           </nav>

@@ -12,8 +12,8 @@ import MainNavigationColLink from '../mainNavigationColLink/MainNavigationColLin
 
 function DesktopNavigation() {
   return (
-    <nav className="min-w-72 flex flex-col xl:min-w-52 md:order-2 md:hidden">
-      <div className="grow flex flex-col gap-y-8">
+    <nav className="flex min-w-72 flex-col xl:min-w-52 md:order-2 md:hidden">
+      <div className="flex grow flex-col gap-y-8">
         <MainLogo />
         <MainNavigationCol border={true} title="Main menu">
           <>

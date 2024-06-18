@@ -28,12 +28,10 @@ function MainNavigationButton({
   const tabIndex = hidden ? -1 : 0;
   const buttonClass = `flex justify-start ${sizeStr} ${vertical ? 'flex-col justify-center' : ''} gap-2 items-center text-primary-500 hover:text-primary-800 focus:text-primary-800 ease-in-out duration-150 ${additionalClass}`;
 
-  //${isActive ? 'text-primary-800 bg-primary-50 border border-primary-200/100 [&>svg]:stroke-emerald-500' : ''}
-
   const buttonContent = (
     <>
       {icon}
-      <span className={size === 'sm' ? 'text-sm xl:test-xs' : 'xl:text-sm'}>
+      <span className={size === 'sm' ? 'xl:test-xs text-sm' : 'xl:text-sm'}>
         {label}
       </span>
     </>
