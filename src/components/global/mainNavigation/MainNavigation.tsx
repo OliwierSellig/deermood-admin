@@ -10,7 +10,7 @@ import MainNavigationUser from '../mainNavigationUser/MainNavigationUser';
 
 function MainNavigation() {
   return (
-    <nav className="min-w-72 flex flex-col ">
+    <aside className="min-w-72 flex flex-col ">
       <div className="grow flex flex-col gap-y-8">
         <MainLogo />
         <MainNavigationCol border={true} title="Main menu">
@@ -56,7 +56,7 @@ function MainNavigation() {
         email="oliwierandrzej.sellig@gmail.com"
         photo={adminPhoto}
       />
-    </nav>
+    </aside>
   );
 }
 
