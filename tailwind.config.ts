@@ -8,6 +8,13 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      '2xl': { max: '1540px' },
+      xl: { max: '1280px' },
+      lg: { max: '1024px' },
+      md: { max: '960px' },
+      sm: { max: '620px' },
+    },
     extend: {
       keyframes: {
         fadeIn: {
@@ -17,6 +24,7 @@ const config: Config = {
       },
       animation: {
         'fade-in-fast': 'fadeIn 0.2s ease-in-out',
+        'fade-in-medium': 'fadeIn 0.3s ease-in-out',
       },
       fontFamily: {
         sans: ['var(--font-plus-jakarta-sans)'],

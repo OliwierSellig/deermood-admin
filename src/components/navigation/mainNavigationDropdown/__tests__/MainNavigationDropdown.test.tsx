@@ -1,7 +1,7 @@
 import { featuresLinks } from '@/src/utils/data/links';
 import { HomeIcon } from '@heroicons/react/24/outline';
 import { render, screen } from '@testing-library/react';
-import MainNavigationLink from '../../mainNavigationLink/MainNavigationLink';
+import MainNavigationColLink from '../../mainNavigationColLink/MainNavigationColLink';
 import MainNavigationDropdown from '../MainNavigationDropdown';
 
 describe('Rendering', () => {
@@ -19,7 +19,7 @@ describe('Functionality', () => {
     render(
       <MainNavigationDropdown Icon={<HomeIcon />} label="Features">
         {featuresLinks.map((link, i) => (
-          <MainNavigationLink
+          <MainNavigationColLink
             label={link.label}
             icon={<link.Icon />}
             url={link.url}

@@ -9,3 +9,14 @@ canvas {
 *:focus {
   outline: none;
 }
+
+@media (pointer: coarse) {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}

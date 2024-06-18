@@ -2,17 +2,17 @@ import logo from '@/public/img/logo.png';
 import { ArrowUpRightIcon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
 import Link from 'next/link';
-import TooltipWindow from '../tooltipWindow/TooltipWindow';
+import TooltipWindow from '../../global/tooltipWindow/TooltipWindow';
 
 function MainLogo() {
   return (
-    <header className="py-2 px-4 bg-primary-50 border border-primary-200 rounded-xl flex justify-start items-center gap-10">
+    <header className="py-2 px-4 bg-primary-50 border border-primary-200 rounded-xl flex justify-start items-center gap-10 xl:gap-6">
       <div className="flex items-center gap-2">
         <div className="relative h-14 aspect-square">
           <Image fill src={logo} alt="Deermood Logo" />
         </div>
         <div className="flex flex-col">
-          <span className="text-lg font-medium">Deermood</span>
+          <span className="text-lg font-medium xl:text-base">Deermood</span>
           <span className="text-xs font-medium text-primary-500">
             Admin Panel
           </span>
