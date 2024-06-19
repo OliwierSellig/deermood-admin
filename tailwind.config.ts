@@ -29,6 +29,9 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-plus-jakarta-sans)'],
       },
+      boxShadow: {
+        'login-page': '4px 0px 12px 0px rgba(153, 157, 165, 0.05);',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
