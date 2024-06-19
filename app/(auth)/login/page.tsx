@@ -1,6 +1,7 @@
 'use client';
 
 import FormInput from '@/src/components/global/formInput/FormInput';
+import FormPasswordInput from '@/src/components/global/formPasswordInput/FormPasswordInput';
 import PrimaryButton from '@/src/components/global/primaryButton/PrimaryButton';
 import ForgotPasswordLink from '@/src/components/login/forgotPasswordLink/ForgotPasswordLink';
 import LoginFormHeading from '@/src/components/login/loginFormHeading/LoginFormHeading';
@@ -14,7 +15,9 @@ function Login() {
       />
       <form action="" className="flex flex-col">
         <FormInput size="sm" label="Email" />
-        <FormInput size="sm" label="Password" />
+        <FormPasswordInput>
+          <FormInput size="sm" label="Password" />
+        </FormPasswordInput>
 
         <div className="flex justify-end pb-12">
           <ForgotPasswordLink />

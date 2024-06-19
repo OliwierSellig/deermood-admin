@@ -45,4 +45,44 @@ describe('Rendering', () => {
     const errorText = screen.getByText('Something went wrong.');
     expect(errorText).toBeInTheDocument();
   });
+
+  it('should render the toggle password visibility button when password is passed in props', () => {
+    render(
+      <FormInput password={{ isVisible: false, setIsVisible: () => {} }} />,
+    );
+
+    const buttoEl = screen.getByRole('button', {
+      name: 'Toggle password visibility',
+    });
+
+    expect(buttoEl).toBeInTheDocument();
+  });
+
+  it('should be of type text when password is not passed in props', () => {
+    render(<FormInput />);
+
+    const inputEl = screen.getByRole('textbox');
+
+    expect(inputEl).toHaveAttribute('type', 'text');
+  });
+
+  it('should be of type text when password is passed in props but is not visible', () => {
+    render(
+      <FormInput password={{ isVisible: true, setIsVisible: () => {} }} />,
+    );
+
+    const inputEl = screen.getByRole('textbox');
+
+    expect(inputEl).toHaveAttribute('type', 'text');
+  });
+
+  it('should be of type password when password is passed in props and is visible', () => {
+    render(
+      <FormInput password={{ isVisible: false, setIsVisible: () => {} }} />,
+    );
+
+    const inputEl = screen.getByPlaceholderText('Type something here');
+
+    expect(inputEl).toHaveAttribute('type', 'password');
+  });
 });

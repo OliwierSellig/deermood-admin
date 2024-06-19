@@ -1,3 +1,5 @@
+import ManipulatePasswordVisibilityIcon from '../manipulatePasswordVisibilityIcon/ManipulatePasswordVisibilityIcon';
+
 type FormInputProps = {
   label?: string;
   name?: string;
@@ -6,6 +8,7 @@ type FormInputProps = {
   additionalClass?: string;
   disabled?: boolean;
   error?: { hasMessage: false } | { hasMessage: true; message?: string };
+  password?: { isVisible: boolean; setIsVisible: () => void };
 };
 
 function FormInput({
@@ -16,6 +19,7 @@ function FormInput({
   additionalClass,
   disabled = false,
   error,
+  password,
 }: FormInputProps) {
   const inputId = label ? label.toLocaleLowerCase() : undefined;
   return (
@@ -27,14 +31,23 @@ function FormInput({
           {label}
         </label>
       )}
-      <input
-        className={`${size === 'sm' ? 'text-sm' : 'text-base'} ${disabled ? 'cursor-not-allowed' : ''} flex w-full justify-start rounded-md border border-rose-600/0 bg-primary-150 px-6 py-4 font-medium text-primary-500 ${error ? 'border-rose-600/100' : ''}`}
-        placeholder={placeholder || 'Type something here'}
-        type="text"
-        name={name}
-        id={inputId}
-        disabled={disabled}
-      />
+      <div className="relative">
+        <input
+          className={`${size === 'sm' ? 'text-sm' : 'text-base'} ${disabled ? 'cursor-not-allowed' : ''} flex w-full justify-start rounded-md border border-rose-600/0 bg-primary-150 px-6 py-4 font-medium text-primary-500 ${error ? 'border-rose-600/100' : ''} ${password ? 'pr-10' : ''}`}
+          placeholder={placeholder || 'Type something here'}
+          type={password && !password.isVisible ? 'password' : 'text'}
+          name={name}
+          id={inputId}
+          disabled={disabled}
+        />
+        {password && (
+          <ManipulatePasswordVisibilityIcon
+            isVisible={password.isVisible}
+            setVisibility={password.setIsVisible}
+            additionalClass="absolute top-1/2 -translate-y-1/2 right-4"
+          />
+        )}
+      </div>
       {error?.hasMessage && (
         <p className="absolute bottom-1 left-2 text-xs font-semibold text-rose-600">
           {error.message || 'Something went wrong.'}
