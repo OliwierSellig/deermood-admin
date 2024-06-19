@@ -4,7 +4,7 @@ import WebsiteArrowLink from '../../global/websiteArrowLink/WebsiteArrowLink';
 
 function LoginLayoutHeading() {
   return (
-    <div className="flex flex-col items-end gap-y-28 pb-12">
+    <div className="flex flex-col items-end gap-y-28 pb-12 sm:gap-y-6">
       <WebsiteArrowLink filled={true} />
       <div className="flex items-center gap-x-3 self-center">
         <div className="relative h-16 w-16">
