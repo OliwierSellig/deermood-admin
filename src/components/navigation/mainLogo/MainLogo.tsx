@@ -1,8 +1,6 @@
 import logo from '@/public/img/logo.png';
-import { ArrowUpRightIcon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
-import Link from 'next/link';
-import TooltipWindow from '../../global/tooltipWindow/TooltipWindow';
+import WebsiteArrowLink from '../../global/tooltipWindow/websiteArrowLink/WebsiteArrowLink';
 
 function MainLogo() {
   return (
@@ -18,15 +16,7 @@ function MainLogo() {
           </span>
         </div>
       </div>
-      <TooltipWindow content="Visit Website">
-        <Link
-          href="https://github.com/OliwierSellig"
-          className="text-primary-500 duration-200 ease-in-out focus:text-emerald-600"
-          target="_blank"
-        >
-          <ArrowUpRightIcon className="h-6 w-6" />
-        </Link>
-      </TooltipWindow>
+      <WebsiteArrowLink />
     </header>
   );
 }
