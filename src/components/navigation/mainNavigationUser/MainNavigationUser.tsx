@@ -6,7 +6,7 @@ type MainNavigationUserProps = {
   firstName: string;
   surname: string;
   email: string;
-  photo: string | StaticImageData;
+  photo: string | StaticImageData | null;
 };
 
 function MainNavigationUser({

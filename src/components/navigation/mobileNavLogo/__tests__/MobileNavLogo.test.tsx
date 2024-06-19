@@ -11,3 +11,5 @@ describe('Rendering', () => {
     expect(closeButtonEl).toBeInTheDocument();
   });
 });
+
+// Should also test the navigation hidin after button click
