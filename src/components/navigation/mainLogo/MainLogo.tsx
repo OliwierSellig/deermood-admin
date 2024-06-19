@@ -1,6 +1,6 @@
 import logo from '@/public/img/logo.png';
 import Image from 'next/image';
-import WebsiteArrowLink from '../../global/tooltipWindow/websiteArrowLink/WebsiteArrowLink';
+import WebsiteArrowLink from '../../global/websiteArrowLink/WebsiteArrowLink';
 
 function MainLogo() {
   return (
