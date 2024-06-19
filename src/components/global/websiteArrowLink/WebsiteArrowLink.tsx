@@ -1,6 +1,6 @@
 import { ArrowUpRightIcon } from '@heroicons/react/20/solid';
 import Link from 'next/link';
-import TooltipWindow from '../TooltipWindow';
+import TooltipWindow from '../tooltipWindow/TooltipWindow';
 
 type WebsiteArrowLinkProps = {
   filled?: boolean;
