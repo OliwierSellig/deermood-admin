@@ -22,9 +22,11 @@ const config: Config = {
           '100%': { opacity: '1' },
         },
       },
+
       animation: {
         'fade-in-fast': 'fadeIn 0.2s ease-in-out',
         'fade-in-medium': 'fadeIn 0.3s ease-in-out',
+        'fade-in-long': 'fadeIn 0.4s ease-in-out',
       },
       fontFamily: {
         sans: ['var(--font-plus-jakarta-sans)'],
