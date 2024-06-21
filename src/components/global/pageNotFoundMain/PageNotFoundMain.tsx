@@ -25,6 +25,7 @@ function PageNotFoundMain() {
         </p>
 
         <PrimaryButton
+          link={{ href: '/login' }}
           content="Back to Login"
           additionalClass="px-20 animate-fade-in-fast sm:px-12"
         />
