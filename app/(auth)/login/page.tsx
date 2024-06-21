@@ -8,7 +8,7 @@ import LoginFormHeading from '@/src/components/login/loginFormHeading/LoginFormH
 
 function Login() {
   return (
-    <div className="flex flex-col gap-y-16">
+    <>
       <LoginFormHeading
         heading="Welcome Back!"
         subheading="Please, provide your admin credentials to log in."
@@ -24,7 +24,7 @@ function Login() {
         </div>
         <PrimaryButton content="Login" />
       </form>
-    </div>
+    </>
   );
 }
 

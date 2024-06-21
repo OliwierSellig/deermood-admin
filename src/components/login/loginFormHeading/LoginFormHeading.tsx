@@ -5,7 +5,7 @@ type LoginFormHeadingProps = {
 
 function LoginFormHeading({ heading, subheading }: LoginFormHeadingProps) {
   return (
-    <header className="flex flex-col gap-2 text-center">
+    <header className="flex flex-col gap-2 pb-16 text-center">
       <h1 className="text-2xl font-medium">{heading}</h1>
       <h2 className="text-sm font-medium text-primary-600">{subheading}</h2>
     </header>

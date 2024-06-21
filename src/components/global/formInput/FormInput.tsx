@@ -24,7 +24,7 @@ function FormInput({
   const inputId = label ? label.toLocaleLowerCase() : undefined;
   return (
     <div
-      className={`${disabled ? 'opacity-70' : ''} relative flex w-full flex-col gap-y-2 pb-6 ${additionalClass}`}
+      className={`${disabled ? 'opacity-70' : ''} relative flex w-full flex-col gap-y-2 pb-8 ${additionalClass}`}
     >
       {Boolean(label) && (
         <label className="font-medium text-primary-600" htmlFor={inputId}>
