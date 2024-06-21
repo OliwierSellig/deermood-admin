@@ -21,7 +21,8 @@ function FormInput({
   error,
   password,
 }: FormInputProps) {
-  const inputId = label ? label.toLocaleLowerCase() : undefined;
+  const inputId = label ? label.toLowerCase() : undefined;
+
   return (
     <div
       className={`${disabled ? 'opacity-70' : ''} relative flex w-full flex-col gap-y-2 pb-8 ${additionalClass}`}

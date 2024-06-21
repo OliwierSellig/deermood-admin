@@ -6,9 +6,9 @@ function LoginLayoutHeading() {
   return (
     <div className="flex flex-col items-end gap-y-28 pb-12 sm:gap-y-6">
       <WebsiteArrowLink filled={true} />
-      <div className="flex items-center gap-x-3 self-center">
+      <div className="flex items-center gap-x-3 self-center overflow-hidden rounded-full">
         <div className="relative h-16 w-16">
-          <Image src={logo} alt="Deermood logo" fill />
+          <Image src={logo} sizes="64px" alt="Deermood logo" fill />
         </div>
         <span className="text-xl font-medium">Deermood</span>
       </div>
