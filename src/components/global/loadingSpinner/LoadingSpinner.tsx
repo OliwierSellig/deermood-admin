@@ -1,12 +1,13 @@
 type LoadingSpinnerProps = {
-  fill?: boolean;
   theme?: 'green' | 'grey' | 'blue' | 'red';
   additionalClass?: string;
+  fill?: boolean;
 };
 
 function LoadingSpinner({
   theme = 'grey',
   additionalClass = '',
+  fill = false,
 }: LoadingSpinnerProps) {
   const themeStr = (function getTheme() {
     switch (theme) {
@@ -17,14 +18,14 @@ function LoadingSpinner({
       case 'red':
         return 'fill-rose-700 text-rose-200';
       default:
-        return 'fill-primary-700 text-primary-200';
+        return 'fill-primary-600 text-primary-200';
     }
   })();
   return (
-    <div role="status" className={additionalClass}>
+    <div role="status" className={` ${fill ? 'w-full' : ''}${additionalClass}`}>
       <svg
         aria-hidden="true"
-        className={`h-6 w-6 animate-spin ${themeStr}`}
+        className={` ${fill ? 'w-full' : 'h-6 w-6'} animate-spin ${themeStr}`}
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
