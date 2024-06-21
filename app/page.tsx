@@ -1,3 +1,3 @@
 export default function Home() {
-  return <h1>Deermood Admin</h1>;
+  return <div>Deermood</div>;
 }

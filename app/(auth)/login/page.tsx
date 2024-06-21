@@ -13,16 +13,16 @@ function Login() {
         heading="Welcome Back!"
         subheading="Please, provide your admin credentials to log in."
       />
-      <form action="" className="flex flex-col">
+      <form action="" className="flex animate-fade-in-fast flex-col">
         <FormInput size="sm" label="Email" />
         <FormPasswordInput>
           <FormInput size="sm" label="Password" />
         </FormPasswordInput>
 
-        <div className="flex justify-end pb-12">
+        <div className="flex animate-fade-in-fast justify-end pb-12">
           <ForgotPasswordLink />
         </div>
-        <PrimaryButton content="Login" />
+        <PrimaryButton content="Login" additionalClass="animate-fade-in-fast" />
       </form>
     </>
   );
