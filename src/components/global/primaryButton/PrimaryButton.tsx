@@ -13,7 +13,7 @@ type PrimaryButtonProps = {
   additionalClass?: string;
   isLoading?: boolean;
   disabled?: boolean;
-  role?: 'button' | 'submit';
+  type?: 'button' | 'submit';
   handleClick?: () => void;
   link?: { href: string; newTab?: boolean };
 };
@@ -27,7 +27,7 @@ function PrimaryButton({
   additionalClass = '',
   isLoading = false,
   disabled = false,
-  role = 'button',
+  type = 'button',
   handleClick,
   link,
 }: PrimaryButtonProps) {
@@ -74,7 +74,7 @@ function PrimaryButton({
     );
   return (
     <button
-      role={role}
+      type={type}
       onClick={() => handleClick?.()}
       tabIndex={tabIndex}
       className={buttonClass}

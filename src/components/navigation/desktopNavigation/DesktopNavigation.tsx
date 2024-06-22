@@ -1,9 +1,9 @@
-import adminPhoto from '@/public/img/admin.jpg';
 import { featuresLinks, linksLower, linksUpper } from '@/src/utils/data/links';
 import {
   ArrowRightStartOnRectangleIcon,
   BeakerIcon,
 } from '@heroicons/react/24/outline';
+import LogoutBtn from '../../global/LogoutBtn';
 import MainLogo from '../../navigation/mainLogo/MainLogo';
 import MainNavigationCol from '../../navigation/mainNavigationCol/MainNavigationCol';
 import MainNavigationDropdown from '../../navigation/mainNavigationDropdown/MainNavigationDropdown';
@@ -51,17 +51,12 @@ function DesktopNavigation() {
             <MainNavigationColLink
               label="Logout"
               icon={<ArrowRightStartOnRectangleIcon />}
-              handleClick={() => console.log('Logging out')}
             />
+            <LogoutBtn />
           </>
         </MainNavigationCol>
       </div>
-      <MainNavigationUser
-        firstName="Oliwier"
-        surname="Sellig"
-        email="oliwierandrzej.sellig@gmail.com"
-        photo={adminPhoto}
-      />
+      <MainNavigationUser />
     </nav>
   );
 }

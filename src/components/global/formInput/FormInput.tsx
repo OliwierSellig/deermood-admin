@@ -7,7 +7,7 @@ type FormInputProps = {
   size?: 'sm' | 'md';
   additionalClass?: string;
   disabled?: boolean;
-  error?: { hasMessage: false } | { hasMessage: true; message?: string };
+  error?: { hasMessage: false } | { hasMessage: true; message?: string } | null;
   password?: { isVisible: boolean; setIsVisible: () => void };
 };
 

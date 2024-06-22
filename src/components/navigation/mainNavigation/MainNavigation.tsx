@@ -1,5 +1,3 @@
-'use client';
-
 import DesktopNavigation from '../desktopNavigation/DesktopNavigation';
 import MobileNavigation from '../mobileNavigation/MobileNavigation';
 

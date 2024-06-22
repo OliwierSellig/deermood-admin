@@ -1,3 +1,5 @@
+'use client';
+
 import adminPhoto from '@/public/img/admin.jpg';
 import {
   ArrowRightStartOnRectangleIcon,
