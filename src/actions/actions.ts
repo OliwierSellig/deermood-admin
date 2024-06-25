@@ -1,22 +1,52 @@
 'use server';
 
 import { signIn, signOut } from '@/src/auth';
-import { redirect } from 'next/navigation';
 
-export async function credentialsLogin(formData: FormData) {
+class LoginError extends Error {
+  constructor(message: string) {
+    super();
+    this.message = message;
+  }
+}
+
+// ---------------------- Loggin in admin --------------------------------
+
+export async function credentialsLogin(
+  email: string,
+  password: string,
+): Promise<{ status: 'success' | 'fail'; message: string }> {
+  // Had to find few workaround, beacouse the Auth.js credentials authorize method does not let custom errors pass.
+
   try {
-    // There wil be an usage of ZOD library
+    const response = await fetch('http://localhost:3000/api/v1/admins/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const res = await response.json();
+
+    if (!response.ok) throw new LoginError(res.message);
+
     await signIn('credentials', {
-      email: formData.get('email'),
-      password: formData.get('password'),
+      email,
+      password,
       redirect: false,
     });
 
-    redirect('/dashboard');
-  } catch (err) {
-    return { message: 'Something went wrong' };
+    return { status: 'success', message: 'Successfully logged in' };
+  } catch (error) {
+    return {
+      status: 'fail',
+      message:
+        error instanceof LoginError ? error.message : 'Something went wrong!',
+    };
   }
 }
+
+// ---------------------- Loggin out admin -------------------------------
 
 export async function credentialsLogout() {
   await signOut({ redirectTo: '/login' });

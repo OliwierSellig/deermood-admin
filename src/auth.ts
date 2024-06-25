@@ -23,9 +23,9 @@ export const {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        const { email, password } = credentials;
-
         try {
+          const { email, password } = credentials;
+
           const response = await fetch(
             'http://localhost:3000/api/v1/admins/login',
             {
@@ -38,15 +38,15 @@ export const {
           );
 
           const res = await response.json();
-          if (response.ok && res.data?.admin) {
+          console.log(res);
+
+          if (res?.data?.admin)
             return {
               ...res.data.admin,
               accessToken: res.token,
             } as User & { accessToken: string };
-          }
           return null;
-        } catch (err) {
-          console.log(err);
+        } catch (error) {
           return null;
         }
       },
