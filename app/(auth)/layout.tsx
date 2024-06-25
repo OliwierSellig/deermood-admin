@@ -1,16 +1,11 @@
 import loginBg from '@/public/img/login.png';
-import { auth } from '@/src/auth';
 import LoginLayoutHeading from '@/src/components/login/loginLayoutHeading/LoginLayoutHeading';
 import Image from 'next/image';
-import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
 
 type LayoutProps = { children: ReactNode };
 
-async function layout({ children }: LayoutProps) {
-  const session = await auth();
-  if (session?.user) redirect('/dashboard');
-
+function Layout({ children }: LayoutProps) {
   return (
     <div className="flex h-screen md:flex-col md:items-center">
       <div className="relative z-10 flex w-3/12 min-w-[24rem] max-w-[44rem] flex-col justify-start p-8 shadow-login-page md:h-full md:w-full md:min-w-0 md:shadow-none">
@@ -31,4 +26,4 @@ async function layout({ children }: LayoutProps) {
   );
 }
 
-export default layout;
+export default Layout;

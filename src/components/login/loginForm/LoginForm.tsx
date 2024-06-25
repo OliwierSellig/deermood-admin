@@ -27,7 +27,6 @@ function LoginForm() {
     if (res.status === 'success') {
       router.push('/dashboard');
     }
-    console.log(res.message);
 
     reset();
   }
