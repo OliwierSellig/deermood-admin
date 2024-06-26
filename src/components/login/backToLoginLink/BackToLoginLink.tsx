@@ -5,7 +5,7 @@ function BackToLoginLink() {
   return (
     <Link
       href={'/login'}
-      className="flex items-center justify-center gap-x-2 [&:focus>span]:text-teal-600 [&:hover>span]:text-teal-600"
+      className="flex items-center justify-center gap-x-2 self-center [&:focus>span]:text-teal-600 [&:hover>span]:text-teal-600"
     >
       <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary-200">
         <ChevronLeftIcon className="h-5 w-5 fill-primary-600" />

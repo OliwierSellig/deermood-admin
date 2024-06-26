@@ -20,7 +20,12 @@ function UserPhotoLink({
       className={`relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border-2 border-primary-200 before:absolute before:z-10 before:h-full before:w-full before:bg-primary-700/60 before:opacity-0 before:duration-200 before:ease-in-out before:hover:opacity-100 before:focus:opacity-100 [&:focus>svg]:translate-x-0 [&:focus>svg]:opacity-100 [&:hover>svg]:translate-x-0 [&:hover>svg]:opacity-100 ${additionalClass}`}
     >
       {photo ? (
-        <Image src={photo} fill alt={`${firstName} photo`} />
+        <Image
+          src={photo}
+          fill
+          sizes="(max-width: 960px) 4rem, 3rem"
+          alt={`${firstName} photo`}
+        />
       ) : (
         <div className="absolute flex h-full w-full items-center justify-center bg-primary-200">
           <UserIcon

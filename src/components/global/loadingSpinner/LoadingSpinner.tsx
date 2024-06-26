@@ -18,7 +18,7 @@ function LoadingSpinner({
       case 'red':
         return 'fill-rose-700 text-rose-200';
       default:
-        return 'fill-primary-600 text-primary-200';
+        return 'fill-primary-400 text-primary-200';
     }
   })();
   return (
