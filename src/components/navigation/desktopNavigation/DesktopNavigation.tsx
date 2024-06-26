@@ -9,6 +9,7 @@ import MainNavigationCol from '../../navigation/mainNavigationCol/MainNavigation
 import MainNavigationDropdown from '../../navigation/mainNavigationDropdown/MainNavigationDropdown';
 import MainNavigationUser from '../../navigation/mainNavigationUser/MainNavigationUser';
 import MainNavigationColLink from '../mainNavigationColLink/MainNavigationColLink';
+import OpenLogoutConfirmation from '../openLogoutConfirmation/OpenLogoutConfirmation';
 
 function DesktopNavigation() {
   return (
@@ -48,10 +49,12 @@ function DesktopNavigation() {
                 key={i}
               />
             ))}
-            <MainNavigationColLink
-              label="Logout"
-              icon={<ArrowRightStartOnRectangleIcon />}
-            />
+            <OpenLogoutConfirmation>
+              <MainNavigationColLink
+                label="Logout"
+                icon={<ArrowRightStartOnRectangleIcon />}
+              />
+            </OpenLogoutConfirmation>
             <LogoutBtn />
           </>
         </MainNavigationCol>

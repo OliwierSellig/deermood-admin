@@ -8,6 +8,7 @@ import {
 import { useState } from 'react';
 import MainNavigationButton from '../mainNavigationButton/MainNavigationButton';
 import MobileColNav from '../mobileColNav/MobileColNav';
+import OpenLogoutConfirmation from '../openLogoutConfirmation/OpenLogoutConfirmation';
 import UserPhotoLink from '../userPhotoLink/UserPhotoLink';
 
 function MobileNavigation() {
@@ -28,14 +29,13 @@ function MobileNavigation() {
           firstName="Oliwier"
         />
       </div>
-      <MainNavigationButton
-        icon={<ArrowRightStartOnRectangleIcon />}
-        label="Log out"
-        vertical={true}
-        handleClick={() => {
-          console.log('Logging Out...');
-        }}
-      />
+      <OpenLogoutConfirmation>
+        <MainNavigationButton
+          icon={<ArrowRightStartOnRectangleIcon />}
+          label="Log out"
+          vertical={true}
+        />
+      </OpenLogoutConfirmation>
       {isMobileOpen && <MobileColNav hideNav={() => setIsMobileOpen(false)} />}
     </nav>
   );

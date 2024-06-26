@@ -22,7 +22,7 @@ const config: Config = {
           '100%': { opacity: '1' },
         },
         fadeInPopup: {
-          '0%': { opacity: '0', transform: 'translate(-50%, -45%)' },
+          '0%': { opacity: '0', transform: 'translate(-50%, -47%)' },
           '100%': { opacity: '1', transform: 'translateY(-50%, -50%)' },
         },
       },

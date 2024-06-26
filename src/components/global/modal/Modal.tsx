@@ -46,7 +46,7 @@ function Open({ children, opens: opensWindowName }: OpenProps) {
   const { open } = useModal();
 
   return cloneElement(children, {
-    onClick: () => open(opensWindowName),
+    handleClick: () => open(opensWindowName),
     onKeyDown: (e: KeyboardEvent) => {
       if (e.key === 'Enter') {
         open(opensWindowName);
@@ -61,7 +61,7 @@ type WindowProps = {
   locked?: boolean;
 };
 
-function Window({ name, children, locked = true }: WindowProps) {
+function Window({ name, children, locked = false }: WindowProps) {
   const { openName, close } = useModal();
   const backgroundRef = useRef<HTMLDivElement>(null);
 

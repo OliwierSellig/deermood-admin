@@ -24,7 +24,7 @@ function LoginForm() {
 
     const res = await credentialsLogin(data.email, data.password);
 
-    if (res.status === 'success') {
+    if (res?.status === 'success') {
       router.push('/dashboard');
     }
 

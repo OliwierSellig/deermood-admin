@@ -6,6 +6,7 @@ import MainNavigationCol from '../mainNavigationCol/MainNavigationCol';
 import MainNavigationColLink from '../mainNavigationColLink/MainNavigationColLink';
 import MainNavigationDropdown from '../mainNavigationDropdown/MainNavigationDropdown';
 import MobileNavLogo from '../mobileNavLogo/MobileNavLogo';
+import OpenLogoutConfirmation from '../openLogoutConfirmation/OpenLogoutConfirmation';
 
 type MobileColNavProps = {
   hideNav: () => void;
@@ -52,14 +53,12 @@ function MobileColNav({ hideNav }: MobileColNavProps) {
                 handleClick={hideNav}
               />
             ))}
-            <MainNavigationColLink
-              label="Logout"
-              icon={<ArrowRightStartOnRectangleIcon />}
-              handleClick={() => {
-                console.log('Logging out');
-                hideNav();
-              }}
-            />
+            <OpenLogoutConfirmation>
+              <MainNavigationColLink
+                label="Logout"
+                icon={<ArrowRightStartOnRectangleIcon />}
+              />
+            </OpenLogoutConfirmation>
           </>
         </MainNavigationCol>
       </div>
