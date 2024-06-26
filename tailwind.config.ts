@@ -21,12 +21,17 @@ const config: Config = {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
+        fadeInPopup: {
+          '0%': { opacity: '0', transform: 'translate(-50%, -45%)' },
+          '100%': { opacity: '1', transform: 'translateY(-50%, -50%)' },
+        },
       },
 
       animation: {
         'fade-in-fast': 'fadeIn 0.2s ease-in-out',
         'fade-in-medium': 'fadeIn 0.3s ease-in-out',
         'fade-in-long': 'fadeIn 0.4s ease-in-out',
+        'fade-popup': 'fadeInPopup 0.3s ease-in-out',
       },
       fontFamily: {
         sans: ['var(--font-plus-jakarta-sans)'],
