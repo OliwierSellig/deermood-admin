@@ -11,12 +11,17 @@ class LoginError extends Error {
   }
 }
 
+type ActionReturnValue = {
+  status: 'success' | 'fail';
+  message: string;
+};
+
 // ---------------------- Loggin in admin --------------------------------
 
 export async function credentialsLogin(
   email: string,
   password: string,
-): Promise<{ status: 'success' | 'fail'; message: string }> {
+): Promise<ActionReturnValue> {
   // Had to find few workaround, beacouse the Auth.js credentials authorize method does not let custom errors pass.
 
   try {
@@ -50,10 +55,7 @@ export async function credentialsLogin(
 
 // ---------------------- Loggin out admin -------------------------------
 
-export async function credentialsLogout(): Promise<{
-  status: 'success' | 'fail';
-  message: string;
-}> {
+export async function credentialsLogout(): Promise<ActionReturnValue> {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   try {
     await fetch('http://localhost:3000/api/v1/admins/logout');
@@ -62,5 +64,35 @@ export async function credentialsLogout(): Promise<{
   } catch (err) {
     // if (isRedirectError(err)) throw err; --- In case i would swithc back to [redirectTo: '/login']
     return { status: 'fail', message: 'Something wnet wrong!' };
+  }
+}
+
+export async function sendResetPasswordEmail(
+  email: string,
+): Promise<ActionReturnValue> {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  try {
+    const response = await fetch(
+      'http://localhost:3000/api/v1/admins/forgotPassword',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      },
+    );
+    const res: { status: string; message: string } = await response.json();
+
+    if (!response.ok) {
+      return { status: 'fail', message: res.message };
+    } else {
+      return {
+        status: 'success',
+        message: res?.message || 'Email sent to inbox',
+      };
+    }
+  } catch (err) {
+    return { status: 'fail', message: 'Something went wrong!' };
   }
 }
