@@ -1,22 +1,27 @@
 'use client';
 
 import { credentialsLogout } from '@/src/actions/actions';
+import { useRouter } from 'next/navigation';
 import { ReactElement, useState } from 'react';
+import { toast } from 'sonner';
 import Modal from '../../global/modal/Modal';
 import PopupWindow from '../../global/popupWindow/PopupWindow';
 
 type OpenLogoutConfirmationProps = { children: ReactElement };
 
 function OpenLogoutConfirmation({ children }: OpenLogoutConfirmationProps) {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   async function handleLogout() {
-    try {
-      setIsLoading(true);
-      await credentialsLogout();
-    } catch (err) {
-    } finally {
-      setIsLoading(false);
+    setIsLoading(true);
+    const res = await credentialsLogout();
+    if (res.status === 'success') {
+      toast.success(res.message);
+      router.push('/login');
+    } else {
+      toast.error(res.message);
     }
+    setIsLoading(false);
   }
   return (
     <Modal>
@@ -30,6 +35,7 @@ function OpenLogoutConfirmation({ children }: OpenLogoutConfirmationProps) {
             handleClick: handleLogout,
             theme: 'red',
             isLoading,
+            closeAfterAction: true,
           }}
           handleClose={{ isModal: true }}
         />

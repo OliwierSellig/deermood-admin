@@ -3,7 +3,6 @@ import {
   ArrowRightStartOnRectangleIcon,
   BeakerIcon,
 } from '@heroicons/react/24/outline';
-import LogoutBtn from '../../global/LogoutBtn';
 import MainLogo from '../../navigation/mainLogo/MainLogo';
 import MainNavigationCol from '../../navigation/mainNavigationCol/MainNavigationCol';
 import MainNavigationDropdown from '../../navigation/mainNavigationDropdown/MainNavigationDropdown';
@@ -55,7 +54,6 @@ function DesktopNavigation() {
                 icon={<ArrowRightStartOnRectangleIcon />}
               />
             </OpenLogoutConfirmation>
-            <LogoutBtn />
           </>
         </MainNavigationCol>
       </div>

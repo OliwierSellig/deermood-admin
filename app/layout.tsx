@@ -1,5 +1,6 @@
 import { plusJakartaSans } from '@/src/utils/fonts';
 import type { Metadata } from 'next';
+import { Toaster } from 'sonner';
 import '../styles/globals.css';
 
 export const metadata: Metadata = {
@@ -16,8 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${plusJakartaSans.variable} font-sans bg-primary-50 text-primary-800`}
+        className={`${plusJakartaSans.variable} bg-primary-50 font-sans text-primary-800`}
       >
+        <Toaster richColors />
         {children}
       </body>
     </html>

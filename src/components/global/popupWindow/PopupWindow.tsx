@@ -15,8 +15,9 @@ type PopupWindowProps = {
     theme: 'red';
     text: string;
     icon?: ReactElement<SVGProps<SVGSVGElement>>;
-    handleClick: () => void;
+    handleClick: () => void | Promise<void>;
     isLoading?: boolean;
+    closeAfterAction?: boolean;
   };
 };
 
@@ -30,7 +31,7 @@ function PopupWindow({
 }: PopupWindowProps) {
   const closeFn = handleClose.isModal ? onCloseModal : handleClose.closeFn;
   return (
-    <div className="animate-fade-popup fixed left-1/2 top-1/2 z-50 flex w-11/12 max-w-[42rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center rounded-xl border border-primary-200 bg-primary-50 px-12 pb-12 pt-16 text-center shadow-[0_4px_12px_0_rgba(71,79,93,0.15)]">
+    <div className="fixed left-1/2 top-1/2 z-50 flex w-11/12 max-w-[42rem] -translate-x-1/2 -translate-y-1/2 animate-fade-popup flex-col items-center rounded-xl border border-primary-200 bg-primary-50 px-12 pb-12 pt-16 text-center shadow-[0_4px_12px_0_rgba(71,79,93,0.15)]">
       <button
         className="absolute right-4 top-4 cursor-pointer rounded-full bg-primary-200 p-2 text-primary-600 duration-150 ease-in-out hover:bg-primary-300 focus:bg-primary-300 focus:text-primary-800"
         onClick={closeFn}
@@ -52,7 +53,10 @@ function PopupWindow({
         <PrimaryButton
           content={actionButton.text}
           icon={actionButton.icon}
-          handleClick={actionButton.handleClick}
+          handleClick={async () => {
+            await actionButton.handleClick();
+            if (actionButton.closeAfterAction) closeFn?.();
+          }}
           theme={actionButton.theme}
           rounded="xl"
           additionalClass="flex-1"

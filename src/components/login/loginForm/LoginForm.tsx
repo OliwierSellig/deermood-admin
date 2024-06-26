@@ -5,6 +5,7 @@ import { TSignInSchema, signInSchema } from '@/src/utils/types/zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import FormInput from '../../global/formInput/FormInput';
 import FormPasswordInput from '../../global/formPasswordInput/FormPasswordInput';
 import PrimaryButton from '../../global/primaryButton/PrimaryButton';
@@ -25,7 +26,10 @@ function LoginForm() {
     const res = await credentialsLogin(data.email, data.password);
 
     if (res?.status === 'success') {
+      toast.success(res.message);
       router.push('/dashboard');
+    } else {
+      toast.error(res.message);
     }
 
     reset();

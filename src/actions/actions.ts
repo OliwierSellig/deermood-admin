@@ -1,7 +1,8 @@
 'use server';
 
 import { signIn, signOut } from '@/src/auth';
-import { isRedirectError } from 'next/dist/client/components/redirect';
+
+// import { isRedirectError } from 'next/dist/client/components/redirect';
 
 class LoginError extends Error {
   constructor(message: string) {
@@ -55,11 +56,11 @@ export async function credentialsLogout(): Promise<{
 }> {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   try {
-    await signOut({ redirectTo: '/' });
     await fetch('http://localhost:3000/api/v1/admins/logout');
+    await signOut({ redirect: false });
     return { status: 'success', message: 'Logged out successfully' };
   } catch (err) {
-    if (isRedirectError(err)) throw err;
-    return { status: 'fail', message: 'Something wnet very wrong!' };
+    // if (isRedirectError(err)) throw err; --- In case i would swithc back to [redirectTo: '/login']
+    return { status: 'fail', message: 'Something wnet wrong!' };
   }
 }
