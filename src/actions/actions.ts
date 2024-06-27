@@ -70,7 +70,6 @@ export async function credentialsLogout(): Promise<ActionReturnValue> {
 export async function sendResetPasswordEmail(
   email: string,
 ): Promise<ActionReturnValue> {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
   try {
     const response = await fetch(
       'http://localhost:3000/api/v1/admins/forgotPassword',

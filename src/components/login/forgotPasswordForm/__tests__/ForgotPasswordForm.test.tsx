@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import { sendResetPasswordEmail } from '@/src/actions/actions';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ForgotPasswordForm from '../ForgotPasswordForm';
 
@@ -29,10 +30,36 @@ describe('Functionality', () => {
 
     const submitButtonEl = screen.getByRole('button', { name: 'Continue' });
 
-    await userEvent.click(submitButtonEl);
+    await user.click(submitButtonEl);
 
     const emailErrorEl = screen.getByText('Invalid email');
 
     expect(emailErrorEl).toBeInTheDocument();
+  });
+
+  it('should reset the form inputs after successfull submission', async () => {
+    const mockSendResetPasswordEmail = jest.fn().mockResolvedValue({
+      status: 'success',
+      message: 'Token sent to email',
+    });
+    (sendResetPasswordEmail as jest.Mock).mockImplementation(
+      mockSendResetPasswordEmail,
+    );
+    const user = userEvent.setup();
+
+    render(<ForgotPasswordForm />);
+
+    const emailInput = screen.getByLabelText('Email');
+
+    const submitButtonEl = screen.getByRole('button', { name: 'Continue' });
+
+    await user.click(submitButtonEl);
+
+    await waitFor(
+      () => {
+        expect(emailInput).toHaveValue('');
+      },
+      { timeout: 4000 },
+    );
   });
 });
