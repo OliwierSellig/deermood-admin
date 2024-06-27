@@ -1,11 +1,14 @@
-import { sendResetPasswordEmail } from '@/src/actions/actions';
+import { sendResetPasswordEmail } from '@/src/actions/sendResetPasswordEmail/sendResetPasswordEmail';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ForgotPasswordForm from '../ForgotPasswordForm';
 
-jest.mock('../../../../actions/actions.ts', () => ({
-  sendResetPasswordEmail: jest.fn(),
-}));
+jest.mock(
+  '../../../../actions/sendResetPasswordEmail/sendResetPasswordEmail.ts',
+  () => ({
+    sendResetPasswordEmail: jest.fn(),
+  }),
+);
 
 describe('Functionality', () => {
   it('should render correct error when email input is empty', async () => {

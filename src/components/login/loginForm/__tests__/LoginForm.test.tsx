@@ -1,9 +1,9 @@
-import { credentialsLogin } from '@/src/actions/actions';
+import { credentialsLogin } from '@/src/actions/credentialsLogin/credentialsLogin';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import LoginForm from '../LoginForm';
 
-jest.mock('../../../../actions/actions.ts', () => ({
+jest.mock('../../../../actions/credentialsLogin/credentialsLogin.ts', () => ({
   credentialsLogin: jest.fn(),
 }));
 

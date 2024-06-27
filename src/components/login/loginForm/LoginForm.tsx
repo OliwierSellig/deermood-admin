@@ -1,6 +1,6 @@
 'use client';
 
-import { credentialsLogin } from '@/src/actions/actions';
+import { credentialsLogin } from '@/src/actions/credentialsLogin/credentialsLogin';
 import { TSignInSchema, signInSchema } from '@/src/utils/types/zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';

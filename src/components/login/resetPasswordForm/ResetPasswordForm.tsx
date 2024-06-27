@@ -1,6 +1,6 @@
 'use client';
 
-import { resetPassword } from '@/src/actions/actions';
+import { resetPassword } from '@/src/actions/resetPassword/resetPassword';
 import {
   TResetPasswordSchema,
   resetPasswordSchema,

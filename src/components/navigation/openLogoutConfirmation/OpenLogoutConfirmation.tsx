@@ -1,6 +1,6 @@
 'use client';
 
-import { credentialsLogout } from '@/src/actions/actions';
+import { credentialsLogout } from '@/src/actions/credentialsLogout/credentialsLogout';
 import { useRouter } from 'next/navigation';
 import { ReactElement, useState } from 'react';
 import { toast } from 'sonner';

@@ -1,9 +1,9 @@
-import { resetPassword } from '@/src/actions/actions';
+import { resetPassword } from '@/src/actions/resetPassword/resetPassword';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ResetPasswordBox from '../ResetPasswordBox';
 
-jest.mock('../../../../actions/actions.ts', () => ({
+jest.mock('../../../../actions/resetPassword/resetPassword.ts', () => ({
   resetPassword: jest.fn(),
 }));
 

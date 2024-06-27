@@ -1,6 +1,6 @@
 'use client';
 
-import { sendResetPasswordEmail } from '@/src/actions/actions';
+import { sendResetPasswordEmail } from '@/src/actions/sendResetPasswordEmail/sendResetPasswordEmail';
 import {
   TForgotPasswordSchema,
   forgotPasswordSchema,

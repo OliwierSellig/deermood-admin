@@ -2,10 +2,6 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ResetPasswordForm from '../ResetPasswordForm';
 
-jest.mock('../../../../actions/actions.ts', () => ({
-  credentialsLogin: jest.fn(),
-}));
-
 jest.mock('next/navigation', () => ({
   useRouter: () => ({
     push: jest.fn(),
