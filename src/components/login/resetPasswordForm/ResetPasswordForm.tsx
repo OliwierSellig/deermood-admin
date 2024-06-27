@@ -14,9 +14,10 @@ import PrimaryButton from '../../global/primaryButton/PrimaryButton';
 
 type ResetPasswordFormProps = {
   token: string;
+  setSucces: () => void;
 };
 
-function ResetPasswordForm({ token }: ResetPasswordFormProps) {
+function ResetPasswordForm({ token, setSucces }: ResetPasswordFormProps) {
   const {
     register,
     handleSubmit,
@@ -30,6 +31,7 @@ function ResetPasswordForm({ token }: ResetPasswordFormProps) {
     const res = await resetPassword(token, data.password);
     if (res.status === 'success') {
       toast.success(res.message);
+      setSucces();
     } else {
       toast.error(res.message);
     }
