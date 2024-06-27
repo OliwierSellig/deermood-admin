@@ -6,15 +6,15 @@ describe('rendering', () => {
     render(
       <PopupWindow
         heading="Are you sure?"
-        subheading="Are you sure you awnt to clear all sizes instances? This action cannot be undone."
+        subheading="Are you sure you want to clear all sizes instances? This action cannot be undone."
         actionButton={{ handleClick: () => {}, text: 'Delete', theme: 'red' }}
-        closePopup={() => {}}
+        handleClose={{ isModal: true }}
       />,
     );
 
     const headingEl = screen.getByText('Are you sure?');
     const subheadingEl = screen.getByText(
-      ' Are you sure you awnt to clear all sizes instances? This action cannot be undone.',
+      'Are you sure you want to clear all sizes instances? This action cannot be undone.',
     );
 
     const cancelEl = screen.getByRole('button', { name: 'Cancel' });

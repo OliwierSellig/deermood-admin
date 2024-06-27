@@ -41,6 +41,7 @@ function FormInput<T extends FieldValues>({
             placeholder={placeholder || 'Type something here'}
             type={password && !password.isVisible ? 'password' : 'text'}
             {...connectFunction(id)}
+            id={id}
             disabled={disabled}
           />
         ) : (
