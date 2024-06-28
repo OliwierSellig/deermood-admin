@@ -7,7 +7,7 @@ jest.mock('../../../auth.ts', () => ({
 }));
 
 describe('Functionality', () => {
-  it('should return correct status and message after succes login', async () => {
+  it('should return correct status and message after success login', async () => {
     const res = await credentialsLogin('oliwier.sellig@gmail.com', 'test1234');
 
     expect(res).toHaveProperty('status');

@@ -3,7 +3,7 @@ import { rest } from 'msw';
 import { sendResetPasswordEmail } from '../sendResetPasswordEmail';
 
 describe('Functionality', () => {
-  it('should return correct status and message after succes reset email send', async () => {
+  it('should return correct status and message after success reset email send', async () => {
     const res = await sendResetPasswordEmail('oliwier.sellig@gmail.com');
 
     expect(res).toHaveProperty('status');

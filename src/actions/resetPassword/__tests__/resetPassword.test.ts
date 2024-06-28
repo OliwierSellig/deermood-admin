@@ -3,7 +3,7 @@ import { rest } from 'msw';
 import { resetPassword } from '../resetPassword';
 
 describe('Functionality', () => {
-  it('should return correct status and message after succes password reset', async () => {
+  it('should return correct status and message after success password reset', async () => {
     const res = await resetPassword(
       '7c27c271492270f989482196203db43fba1f54c796785263b67b05a0a040486',
       'newpass1234',

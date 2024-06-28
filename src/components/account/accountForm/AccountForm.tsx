@@ -1,14 +1,21 @@
 'use client';
 
+import { updateAdmin } from '@/src/actions/updateAdmin/updateAdmin';
 import { TUpdateAdminSchema, updateAdminSchema } from '@/src/utils/types/zod';
 import { BookmarkIcon } from '@heroicons/react/24/outline';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import FormInput from '../../global/formInput/FormInput';
 import PrimaryButton from '../../global/primaryButton/PrimaryButton';
 import UploadAccountPhoto from '../uploadAccountPhoto/UploadAccountPhoto';
 
-function AccountForm() {
+type AccountFormProps = {
+  firstName: string;
+  surname: string;
+};
+
+function AccountForm({ firstName, surname }: AccountFormProps) {
   const {
     register,
     handleSubmit,
@@ -16,7 +23,12 @@ function AccountForm() {
   } = useForm<TUpdateAdminSchema>({ resolver: zodResolver(updateAdminSchema) });
 
   async function onSubmit(data: TUpdateAdminSchema) {
-    console.log(data);
+    const res = await updateAdmin(data.firstName, data.surname);
+    if (res.status === 'success') {
+      toast.success(res.message);
+    } else {
+      toast.error(res.message);
+    }
   }
 
   return (
@@ -33,8 +45,7 @@ function AccountForm() {
             size="sm"
             id="firstName"
             error={errors.firstName?.message as string}
-            placeholder="Oliwier"
-            // To Change
+            placeholder={firstName || ''}
           />
           <FormInput
             connectFunction={register}
@@ -42,8 +53,7 @@ function AccountForm() {
             id="surname"
             size="sm"
             error={errors.surname?.message as string}
-            placeholder="Sellig"
-            // To Change
+            placeholder={surname || ''}
           />
         </div>
         <PrimaryButton

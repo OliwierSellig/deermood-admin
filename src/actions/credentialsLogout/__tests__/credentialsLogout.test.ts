@@ -7,7 +7,7 @@ jest.mock('../../../auth.ts', () => ({
 }));
 
 describe('Functionality', () => {
-  it('should return correct status and message after succes logout', async () => {
+  it('should return correct status and message after success logout', async () => {
     const res = await credentialsLogout();
 
     expect(res).toHaveProperty('status');
