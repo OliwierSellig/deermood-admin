@@ -8,7 +8,7 @@ type PrimaryButtonProps = {
   content: string;
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
   rounded?: 'md' | 'lg' | 'xl';
-  theme?: 'red' | 'green' | 'blue';
+  theme?: 'red' | 'green' | 'blue' | 'grey';
   size?: 'sm' | 'md' | 'lg';
   additionalClass?: string;
   isLoading?: boolean;
@@ -37,6 +37,8 @@ function PrimaryButton({
         return `bg-rose-200 text-rose-700 shadow-[0_4px_4px_0px_rgba(244,63,94,0.1)]  ${!disabled && (!isLoading || link) ? 'hover:bg-rose-300 hover:text-rose-800 focus:bg-rose-300 focus:text-rose-950' : ''}`;
       case 'blue':
         return `bg-sky-200 text-sky-700 shadow-[0_4px_4px_0px_rgba(14,165,233,0.1)]  ${!disabled && (!isLoading || link) ? 'hover:bg-sky-300 hover:text-sky-800 focus:bg-sky-300 focus:text-sky-950' : ''}`;
+      case 'grey':
+        return `bg-primary-150 text-primary-600 shadow-[0_4px_4px_0px_rgba(153,157,165,0.05)] ${!disabled && (!isLoading || link) ? 'hover:bg-primary-200 focus:bg-primary-200 focus:text-primary-800' : ''}`;
       default:
         return `bg-teal-200 text-teal-700 shadow-[0_4px_4px_0px_rgba(20,184,166,0.1)]  ${!disabled && (!isLoading || link) ? 'hover:bg-teal-300 hover:text-teal-800 focus:bg-teal-300 focus:text-teal-950' : ''}`;
     }
