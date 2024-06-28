@@ -9,9 +9,9 @@ function AdminLayout({ children }: AdminLayoutProps) {
       <MainNavigation />
       <main
         id="main"
-        className="max-w flex grow items-start justify-start rounded-xl border border-primary-200 bg-primary-50 p-8 md:order-1"
+        className="flex flex-grow flex-col items-center rounded-xl border border-primary-200 bg-primary-50 p-8 md:order-1"
       >
-        {children}
+        <div className="h-full w-full max-w-[90rem] flex-1">{children}</div>
       </main>
     </div>
   );

@@ -9,7 +9,7 @@ type PageHeaderProps = {
 
 function PageHeader({ heading, subheading, backLink }: PageHeaderProps) {
   return (
-    <header className="flex items-center gap-x-6">
+    <header className="mb-8 flex items-center gap-x-6">
       {backLink?.href ? (
         <Link
           className="flex size-10 items-center justify-center rounded-xl bg-primary-150 text-primary-600 duration-150 ease-linear hover:bg-primary-200 focus:bg-primary-200 focus:text-primary-800"

@@ -24,3 +24,10 @@ export const resetPasswordSchema = z
   });
 
 export type TResetPasswordSchema = z.infer<typeof resetPasswordSchema>;
+
+export const updateAdminSchema = z.object({
+  firstName: z.string().min(1, 'This field is required'),
+  surname: z.string().min(1, 'This field is required'),
+});
+
+export type TUpdateAdminSchema = z.infer<typeof updateAdminSchema>;
