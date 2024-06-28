@@ -9,7 +9,7 @@ function AdminLayout({ children }: AdminLayoutProps) {
       <MainNavigation />
       <main
         id="main"
-        className="flex grow items-center justify-center rounded-xl border border-primary-200 bg-primary-50 md:order-1"
+        className="max-w flex grow items-start justify-start rounded-xl border border-primary-200 bg-primary-50 p-8 md:order-1"
       >
         {children}
       </main>
