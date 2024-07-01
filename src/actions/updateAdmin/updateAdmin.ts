@@ -2,7 +2,6 @@
 
 import { auth, update } from '@/src/auth';
 import { ActionReturnValue } from '@/src/utils/types/actionReturnValue';
-import { revalidatePath } from 'next/cache';
 
 export async function updateAdmin(
   firstName: string,
@@ -41,7 +40,6 @@ export async function updateAdmin(
       },
     };
     await update(newSession);
-    revalidatePath('/account');
     return { status: 'success', message: 'Admin updated successfully!' };
   } catch (err) {
     return { status: 'fail', message: 'Something went wrong!' };

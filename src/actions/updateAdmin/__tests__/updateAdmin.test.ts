@@ -5,6 +5,7 @@ import { updateAdmin } from '../updateAdmin';
 
 jest.mock('../../../auth.ts', () => ({
   auth: jest.fn(),
+  update: jest.fn(),
 }));
 
 describe('Functionality', () => {
