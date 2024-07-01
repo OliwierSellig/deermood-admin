@@ -61,4 +61,16 @@ export const handlers = [
       );
     },
   ),
+
+  rest.patch(
+    'http://localhost:3000/api/v1/admins/updatePassword',
+    (req, res, ctx) => {
+      return res(
+        ctx.status(201),
+        ctx.json({
+          status: 'succes',
+        }),
+      );
+    },
+  ),
 ];
