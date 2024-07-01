@@ -40,6 +40,7 @@ async function AccountDetails() {
           <PrimaryButton
             icon={<LockOpenIcon />}
             content="Change Password"
+            link={{ href: '/account/update-password' }}
             theme="grey"
             additionalClass="2xl:max-w-[40rem]"
           />

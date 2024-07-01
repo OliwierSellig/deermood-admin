@@ -20,8 +20,8 @@ function PageHeader({ heading, subheading, backLink }: PageHeaderProps) {
         </Link>
       ) : null}
       <div>
-        <h1 className="text-2xl font-medium">{heading}</h1>
-        <h2 className="text-primary-500">{subheading}</h2>
+        <h1 className="text-2xl font-medium md:text-xl">{heading}</h1>
+        <h2 className="text-primary-500 md:text-sm">{subheading}</h2>
       </div>
     </header>
   );

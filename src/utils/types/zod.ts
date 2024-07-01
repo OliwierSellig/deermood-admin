@@ -31,3 +31,16 @@ export const updateAdminSchema = z.object({
 });
 
 export type TUpdateAdminSchema = z.infer<typeof updateAdminSchema>;
+
+export const updatePasswordSchema = z
+  .object({
+    currentPassword: z.string().min(1, 'This field is required'),
+    newPassword: z.string().min(8, 'Must contain at least 8 characters'),
+    confirmPassword: z.string().min(1, 'This field is required'),
+  })
+  .refine((data) => data.newPassword === data.confirmPassword, {
+    message: 'Passwords must match',
+    path: ['confirmPassword'],
+  });
+
+export type TUpdatePasswordSchema = z.infer<typeof updatePasswordSchema>;
