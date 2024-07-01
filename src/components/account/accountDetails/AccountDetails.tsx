@@ -12,6 +12,15 @@ async function AccountDetails() {
 
   if (!session || !session?.user) return null;
 
+  const createAtDate = new Date(session.user.createdAt).toLocaleDateString(
+    'en-us',
+    {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    },
+  );
+
   return (
     <div className="flex flex-col gap-y-8">
       <div className="= flex gap-x-8">
@@ -25,7 +34,7 @@ async function AccountDetails() {
           <BorderBox py="md" additionalClass="grow">
             <AdditionalAccountData
               email={session.user.email!}
-              createdAt="12 Jul. 2024"
+              createdAt={createAtDate}
             />
           </BorderBox>
           <PrimaryButton

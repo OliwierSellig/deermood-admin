@@ -8,7 +8,6 @@ export async function credentialsLogout(): Promise<ActionReturnValue> {
   try {
     const response = await fetch('http://localhost:3000/api/v1/admins/logout');
     await signOut({ redirect: false });
-    console.log(response.status);
     if (!response.ok) throw new Error();
     return { status: 'success', message: 'Logged out successfully' };
   } catch (err) {

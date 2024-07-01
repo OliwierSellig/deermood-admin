@@ -11,6 +11,7 @@ interface User {
 export const {
   handlers: { GET, POST },
   auth,
+  unstable_update: update,
   signIn,
   signOut,
 } = NextAuth({
@@ -38,13 +39,12 @@ export const {
           );
 
           const res = await response.json();
-          console.log(res);
 
           if (res?.data?.admin)
             return {
               ...res.data.admin,
               accessToken: res.token,
-            } as User & { accessToken: string };
+            } as User & { accessToken: string; createdAt: string };
           return null;
         } catch (error) {
           return null;
@@ -53,14 +53,20 @@ export const {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, trigger, session }) {
+      if (trigger === 'update' && session) {
+        token = { ...token, ...session.user };
+        return token;
+      }
       if (user) {
         token.email = user.email;
         token.firstName = user.firstName;
         token.surname = user.surname;
         token.photo = user.photo;
         token.accessToken = user.accessToken;
+        token.createdAt = user.createdAt;
       }
+
       return token;
     },
 
@@ -70,8 +76,10 @@ export const {
         session.user.firstName = token.firstName as string;
         session.user.surname = token.surname as string;
         session.user.photo = token.photo as string;
+        session.user.createdAt = token.createdAt as string;
         session.accessToken = token.accessToken as string;
       }
+
       return session;
     },
   },

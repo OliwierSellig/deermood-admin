@@ -7,6 +7,7 @@ declare module 'next-auth' {
       firstName: string;
       surname: string;
       photo: string;
+      createdAt: string;
     } & DefaultSession['user'];
     accessToken: string;
   }
@@ -17,6 +18,7 @@ declare module 'next-auth' {
     surname: string;
     photo: string;
     accessToken: string;
+    createdAt: string;
   }
 }
 
@@ -26,6 +28,7 @@ declare module 'next-auth/jwt' {
     firstName: string;
     surname: string;
     photo: string;
+    createdAt: string;
     accessToken: string;
   }
 }

@@ -1,14 +1,14 @@
 'use server';
 
-import { auth } from '@/src/auth';
+import { auth, update } from '@/src/auth';
 import { ActionReturnValue } from '@/src/utils/types/actionReturnValue';
+import { revalidatePath } from 'next/cache';
 
 export async function updateAdmin(
   firstName: string,
   surname: string,
 ): Promise<ActionReturnValue> {
   await new Promise((resolve) => setTimeout(resolve, 1000));
-  console.log('Passed 😂');
 
   try {
     const session = await auth();
@@ -32,6 +32,16 @@ export async function updateAdmin(
     const res = await response.json();
 
     if (!response.ok) return { status: res.status, message: res.message };
+    const newSession = {
+      ...session,
+      user: {
+        ...session.user,
+        firstName: firstName || session.user.firstName,
+        surname: surname || session.user.surname,
+      },
+    };
+    await update(newSession);
+    revalidatePath('/account');
     return { status: 'success', message: 'Admin updated successfully!' };
   } catch (err) {
     return { status: 'fail', message: 'Something went wrong!' };
