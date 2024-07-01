@@ -9,7 +9,7 @@ function AdminLayout({ children }: AdminLayoutProps) {
       <MainNavigation />
       <main
         id="main"
-        className="flex flex-grow flex-col items-center rounded-xl border border-primary-200 bg-primary-50 p-8 md:order-1"
+        className="flex flex-grow flex-col items-center rounded-xl border border-primary-200 bg-primary-50 p-8 md:order-1 md:px-4 md:pb-32 md:pt-6"
       >
         <div className="h-full w-full max-w-[90rem] flex-1">{children}</div>
       </main>

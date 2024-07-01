@@ -44,12 +44,12 @@ function AccountForm({ firstName, surname }: AccountFormProps) {
 
   return (
     <form
-      className="flex w-full items-center gap-x-10"
+      className="flex w-full items-center gap-x-10 md:flex-col md:gap-y-6"
       onSubmit={handleSubmit(onSubmit)}
     >
       <UploadAccountPhoto />
-      <div className="grow">
-        <div className="flex items-center gap-x-6">
+      <div className="md:w-full">
+        <div className="flex items-center gap-x-6 lg:flex-col">
           <FormInput
             connectFunction={register}
             label="First Name"

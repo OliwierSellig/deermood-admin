@@ -23,14 +23,14 @@ async function AccountDetails() {
 
   return (
     <div className="flex flex-col gap-y-8">
-      <div className="= flex gap-x-8">
+      <div className="= flex gap-x-8 gap-y-6 2xl:flex-col md:gap-y-8">
         <BorderBox additionalClass="grow">
           <AccountForm
             firstName={session.user.firstName}
             surname={session.user.surname}
           />
         </BorderBox>
-        <div className="flex w-2/5 flex-col gap-y-4">
+        <div className="flex w-2/5 flex-col gap-y-4 2xl:w-full md:gap-y-8">
           <BorderBox py="md" additionalClass="grow">
             <AdditionalAccountData
               email={session.user.email!}
@@ -41,6 +41,7 @@ async function AccountDetails() {
             icon={<LockOpenIcon />}
             content="Change Password"
             theme="grey"
+            additionalClass="2xl:max-w-[40rem]"
           />
         </div>
       </div>
@@ -52,7 +53,7 @@ async function AccountDetails() {
         content="Disable Account"
         theme="red"
         rounded="xl"
-        additionalClass="self-end"
+        additionalClass="self-end md:max-w-[40rem] md:self-start md:w-full"
       />
     </div>
   );

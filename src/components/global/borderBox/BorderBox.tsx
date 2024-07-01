@@ -39,7 +39,7 @@ function BorderBox({
   })();
   return (
     <div
-      className={`${paddingX} ${paddingY} rounded-xl border border-primary-200 ${additionalClass}`}
+      className={`${paddingX} ${paddingY} rounded-xl border border-primary-200 ${additionalClass} md:border-none md:p-0`}
     >
       {children}
     </div>
